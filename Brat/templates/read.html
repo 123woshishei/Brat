@@ -1,0 +1,426 @@
+{% extends 'muban.html' %}
+{% block title %}read{% endblock %}
+{% block css %}
+    <style>
+        {% for aa in entiey_list %}
+            .entity{{ aa.entity_id }}:hover {
+                color: {{ aa.entity_color }};
+                border: 2px solid {{ aa.entity_label.label_hover_color }};
+             }
+            .lr_one{{ forloop.counter0 }}:hover{
+                color: {{ aa.entity_color }};
+            }
+            .lr_two{{ forloop.counter0 }}:hover{
+                color: {{ aa.entity_color }};
+            }
+        {% endfor %}
+
+    </style>
+{% endblock %}
+{% block content %}
+    <div id="read_cont">
+        {% for x in line %}
+            <div class="read_div">
+                <span class="read_span">{{ forloop.counter }}</span>
+                <span class="read_p">{{ x }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{#    属性version和属性baseProfile属性是必不可少的，供其它类型的验证方式确定SVG版本。#}
+{#    最值得注意的一点是元素的渲染顺序。SVG文件全局有效的规则是“后来居上”，越后面的元素越可见。#}
+{#    <svg version="1.1"#}
+{#         baseProfile="full"#}
+{#         width="300" height="200"#}
+{#         xmlns="http://www.w3.org/2000/svg">#}
+{#      <rect width="100%" height="100%" fill="red" />#}
+{#        一个半径80px的绿色圆圈<circle/>绘制在红色矩形的正中央 （向右偏移150px，向下偏移100px）#}
+{#      <circle cx="150" cy="100" r="80" fill="green" />#}
+{#        绘制文字“SVG”。文字被填充为白色， 通过设置居中的锚点把文字定位到期望的位置：在这种情况下，中心点应该对应于绿色圆圈的中点。还可以精细调整字体大小和垂直位置，确保最后的样式是美观的。#}
+{#      <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>#}
+{#    </svg>#}
+
+{#    <path xmlns="http://www.w3.org/2000/svg" d="M0,-12.5 C0,-16.5 30.5,-12.5 30.5,-16.5C30.5,-12.5 61.0517578125,-16.5 61.0517578125,-12.5" class="purple" stroke="black"/>#}
+    {#rect:矩形  circle:圆  ellipse:椭圆  line:线  polyline:折线  polygon:多边形  path:路#}
+
+
+    <svg width="550" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+{#      <rect x="10" y="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>#}
+{#      <rect x="60" y="10" rx="10" ry="10" width="30" height="30" stroke="black" fill="transparent" stroke-width="5"/>#}
+{##}
+{#      <circle cx="130" cy="25" r="20" stroke="red" fill="transparent" stroke-width="5"/>#}
+{#      <ellipse cx="190" cy="25" rx="20" ry="5" stroke="red" fill="transparent" stroke-width="5"/>#}
+{##}
+{#      <line x1="220" x2="280" y1="25" y2="25" stroke="orange" fill="transparent" stroke-width="10"/>#}
+{#      <polyline points="300 20 305 30 310 25 315 40 320 35 325 50 330 45 335 60 340 55"#}
+{#          stroke="purple" fill="transparent" stroke-width="5"/>#}
+{##}
+{#      <polygon points="390 20 395 40 410 40 400 50 405 65 390 55 375 65 380 50 370 40 385 40"#}
+{#          stroke="red" fill="transparent" stroke-width="5"/>#}
+
+{#      <path d="M450,50 Q470,25 480,50 T520,50" fill="none" stroke="blue" stroke-width="5"/>#}
+{#      <path d="M100,96.5 C100,92.5 130.5,96.5 130.5,92.5C130.5,96.5 161.0517578125,92.5 161.0517578125,96.5" class="curly" stroke="black"/>#}
+
+{#     <path d="M0,96.5 C0,92.5 30.5,96.5 30.5,92.5C30.5,96.5 61.0517578125,92.5 61.0517578125,96.5" class="curly" stroke="rgb(240, 240, 240)"/>#}
+
+{#    <text xmlns="http://www.w3.org/2000/svg" x="372.0841369628906" y="-26" fill="black" data-arc-role="Theme" data-arc-origin="E1" data-arc-target="T7" class="">Theme</text>#}
+{#    <path xmlns="http://www.w3.org/2000/svg" d="M355.80665588378906,-28.5L317.78204345703125,-28.5Q310.28204345703125,-28.5 302.78204345703125,-23" style="stroke: black"/>#}
+{#    <path xmlns="http://www.w3.org/2000/svg" d="M388.3616180419922,-28.5L426.38623046875,-28.5Q433.88623046875,-28.5 441.38623046875,-27.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>#}
+
+
+{#    <path xmlns="http://www.w3.org/2000/svg" d="M355.80665588378906,28.5L317.78204345703125,28.5Q310.28204345703125,28.5 302.78204345703125,23" style="stroke: black"/>#}
+{#    <path xmlns="http://www.w3.org/2000/svg" d="M388.3616180419922,28.5L426.38623046875,28.5Q433.88623046875,28.5 441.38623046875,27.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>#}
+
+
+{#    <text xmlns="http://www.w3.org/2000/svg" x="52" y="16" fill="black" data-arc-role="Theme" data-arc-origin="E1" data-arc-target="T7" class="">Theme</text>#}
+{#    <path d="M55,11.5L17,11.5Q10,11.5 2,11.5" style="stroke: black" fill="none"/>#}
+{#    <path d="M100,11.5L138,11.5 130,8.5 130,14.5 138,11.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>#}
+{#    <path d="M100,11.5L138,11.5Q144,11.5 150,16L147,11 145 16 150,16" marker-end="url(#arrow_triangle_5_black)" style="stroke: black" fill="none"/>#}
+        <path d="M100,11.5L138,11.5Q144,11.5 150,16" style="stroke: black" fill="none"/>
+        <path d="M152,16L152,16 148,11 145 16 152,16" style="stroke: black"/>
+{#     130,8.5 130 14.5 138,11.5#}
+    </svg>
+
+
+{#    <svg width="550" height="150" version="1.1" xmlns="http://www.w3.org/2000/svg">#}
+{#        <text xmlns="http://www.w3.org/2000/svg" x="52" y="16" fill="black" data-arc-role="Theme" data-arc-origin="E1" data-arc-target="T7" class="">Theme</text>#}
+{#        <path d="M55,11.5L17,11.5Q10,11.5 2,17" style="stroke: black" fill="none"/>#}
+{#        <path d="M100,11.5L138,11.5Q145,11.5 153,12.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black" fill="none"/>#}
+{#    </svg>#}
+
+{#<svg width="150" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>#}
+{% endblock %}
+{% block js %}
+    <script>
+
+        {#var gfg = location.href;#}
+        {#console.log('gfg',gfg);#}
+        {#var sdfd = location.href.split('/').reverse()[1];#}
+        {#console.log('sdfd',sdfd);#}
+
+        {#var jghf = document.referrer;#}
+        {#console.log('jghf',jghf);#}
+
+        var lis = [];
+        {% for d in filesd %}
+            lis.push('{{ d }}');
+        {% endfor %}
+        {#var lis = '{{ filesd }}';#}
+        console.log('lis',lis);
+
+        {#var lujing = location.href;#}
+        var wenjian = location.href.split('/').reverse()[1];
+        var ind = lis.indexOf(wenjian);
+        {#console.log('ind',ind);#}
+
+        $("#muban_zuo").on('click',function () {
+            if(ind != 0){
+                {#location.href = lujing.replace(wenjian,lis[ind - 1]);#}
+                location.href = location.href.replace(wenjian,lis[ind - 1]);
+            }else {
+                {#alert('已经是第一页了!');#}
+            }
+        });
+
+        $("#muban_you").on('click',function () {
+            if(ind != lis.length - 1){
+                location.href = location.href.replace(wenjian,lis[ind + 1]);
+            }else {
+                {#alert('已经是最后一页了!');#}
+            }
+        });
+
+
+        $('.read_p:even').css('backgroundColor','#eee');
+        {% for x in entiey_list %}
+
+            var a = 7.5,b = 15;
+            for (var i = 1; i < '{{ x }}'.length + 1; i++){
+                a = 7.5 * i;
+                b = 15 * i;
+            }
+            var stt = '<span data_one="{{ x.entity_color }}" class="{{ x }}">{{ x }}<span data_two="{{ x.entity_label.label_color }}" data_three="{{ x.entity_label.label_hover_color }}" class="entity{{ x.entity_id }}">{{ x.entity_label }}</span><svg class="svg{{ x.entity_id }}" width="80" height="10" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M0,4.5 C0,0.5 '+a+',4.5 '+a+',0.5C'+a+',4.5 '+b+',0.5 '+b+',4.5" class="curly" stroke="black" fill="none"/></svg></span>';
+            var a = $('#read_cont').html().replace(/{{ x }}/g,stt);
+            $('#read_cont').html(a);
+
+            $('.{{ x }}').css({
+                'backgroundColor':'{{ x.entity_color }}',
+                'width':16*'{{ x }}'.length+'px',
+                'border-radius':'5px',
+                'position':'relative'
+            });
+            $('.entity{{ x.entity_id }}').css({
+                'backgroundColor':'{{ x.entity_label.label_color }}',
+                'width':16*'{{ x.entity_label.label_name }}'.length+'px',
+                'border':'2px solid transparent',
+                'position':'absolute',
+                'border-radius':'5px',
+                'left':'calc(50% - '+$('.entity{{ x.entity_id }}').width()/2+'px)',
+                'top':'-24px'
+            });
+
+            $('.svg{{ x.entity_id }}').css({
+                'position':'absolute',
+                'left':'0',
+                'top':'-5px'
+            });
+        {% endfor %}
+
+        $('.read_div>.read_p>span>span').mouseenter(function () {
+            $(this).css('border','2px solid '+$(this).attr('data_three'));
+            $(this).parent().css('background-color',$(this).attr('data_two'));
+         });
+        $('.read_div>.read_p>span>span').mouseleave(function () {
+            $(this).css('border','2px solid transparent');
+            $(this).parent().css('background-color',$(this).parent().attr('data_one'));
+         });
+
+
+
+
+
+
+
+
+
+        {% for y in lr_list %}
+            {#console.log(',,,',$(".read_div>.read_p>span>span").html());#}
+            {#console.log('...',$(".read_div>.read_p>span>span:contains('{{ y.lr_labelA }}')"));#}
+            $(".read_div>.read_p>span>span:contains('{{ y.lr_labelA }}')").addClass('lr_one'+'{{ forloop.counter0 }}');
+            $(".read_div>.read_p>span>span:contains('{{ y.lr_labelB }}')").addClass('lr_two'+'{{ forloop.counter0 }}');
+
+            {#console.log('lr_one',$("span[class^='lr_one']"));#}
+            {#console.log('lr_two',$("span[class^='lr_two']"));#}
+
+            {#var pp = $('.lr_one').offset().top;#}
+            {#console.log('!!!',pp);#}
+
+            var ll,le,lee,lep;
+            {#var ddd = '{{ y.lr_labelA }}' && '{{ y.lr_labelB }}';#}
+            {#var read_span = $(".read_div>.read_p:contains("+ddd+")");#}
+            {#console.log('jhhj',read_span);#}
+
+            {#var dsf = $(".read_p").has('.lr_one').has('.lr_two');#}
+            {#console.log('dsf',dsf);#}
+
+            {#var hhh = $(".read_div>.read_p:contains('{{ y.lr_labelA }}')").offset().top;#}
+            {#console.log('hhh',hhh);#}
+
+            var span_has{{ forloop.counter0 }} = $(".read_p").has('.lr_one'+'{{ forloop.counter0 }}').has('.lr_two'+'{{ forloop.counter0 }}');
+
+            console.log('length',$(".read_div>.read_p").has('svg').children('svg'));
+
+            for(var i = 0;i < span_has{{ forloop.counter0 }}.length; i++) {
+                {#console.log('$$$',$('.lr_two').eq(i).offset().left);#}
+                {#找到同时含有标签A和标签B的span里的单个标签#}
+                {#span_has = span_has{{ forloop.counter0 }};#}
+                var fhd = span_has{{ forloop.counter0 }}.eq(i).children().children('.lr_one' + '{{ forloop.counter0 }}');
+                var fhk = span_has{{ forloop.counter0 }}.eq(i).children().children('.lr_two' + '{{ forloop.counter0 }}');
+                {#console.log('---',fhd);#}
+                {#console.log('fhd',fhd);#}
+                {#console.log('fhk',fhk);#}
+                console.log('===',fhd.offset().top);
+                {#console.log('===',fhd.offset().left);#}
+                console.log('+++',fhk.offset().top);
+                {#console.log('+++',fhk.offset().left);#}
+
+
+
+
+                le = fhk.offset().left;
+                lee = fhd.offset().left;
+                if(lee > le){
+                    {#le = fhk.offset().left;#}
+                    {#lee = fhd.offset().left - fhd.innerWidth();#}
+                    {#lep = le;#}
+                    ll = lee - le - fhd.innerWidth();
+                    {#span_has.eq(i).append('<svg class="lr_theme" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +#}
+                    {#'                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +#}
+                    {#'                    <path d="M'+0.1978*ll*2+',11.5L'+0.0612*ll*2+',11.5Q'+0.036*ll+',11.5 '+0.0072*ll+',17" style="stroke: black" fill="none"/>\n' +#}
+                    {#'                    <path d="M'+0.3597*ll*2+',11.5L'+0.4964*ll+',11.5Q'+0.5216*ll+',11.5 '+0.5504*ll+',12.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black" fill="none"/>\n' +#}
+                    {#'                </svg>');#}
+                    span_has{{ forloop.counter0 }}.eq(i).append('<svg class="lr_theme{{ forloop.counter0 }}" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +
+                    '                    <path d="M'+0.1978*ll*1.9+',11.5L'+0.0612*ll*2+',11.5Q'+0.036*ll+',11.5 '+0.0072*ll+',17" style="stroke: black" fill="none"/>\n' +
+                    '                    <path d="M'+0.3597*ll*1.6+',11.5L'+ll+',11.5 '+(ll - 10)+',8.5,'+(ll - 10)+',14.5,'+ll+',11.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>\n' +
+                    '                </svg>');
+                    $(".lr_theme{{ forloop.counter0 }}").eq(i).css({
+                        'position':'absolute',
+                        'top':-14*({{ forloop.counter0 }}+1)+'px',
+                        'left':le+20+'px'
+                     });
+                 }else {
+                    {#le = fhd.offset().left;#}
+                    {#lee = fhk.offset().left - fhk.innerWidth();#}
+                    {#lep = lee;#}
+                    ll = le - lee - fhk.innerWidth();
+                    {#span_has.eq(i).append('<svg class="lr_theme" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +#}
+                    {#'                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +#}
+                    {#'                    <path d="M'+0.1978*ll*2+',11.5L'+0.0612*ll*2+',11.5Q'+0.036*ll*2+',11.5 '+0.0072*ll*2+',17" style="stroke: black" fill="none"/>\n' +#}
+                    {#'                    <path d="M'+0.3597*ll*2+',11.5L'+0.4964*ll*2+',11.5Q'+0.5216*ll+',11.5 '+0.5504*ll+',12.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black" fill="none"/>\n' +#}
+                    {#'                </svg>');#}
+                    span_has{{ forloop.counter0 }}.eq(i).append('<svg class="lr_theme{{ forloop.counter0 }}" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +
+                    '                    <path d="M'+0.1978*ll*1.89+',11.5L'+0+',11.5 '+10+',8.5 '+10+',14.5 '+0+',11.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>\n' +
+                    '                    <path d="M'+0.335*ll*1.21+',11.5L'+0.43*ll*2+',11.5Q'+0.4764*ll*2+',11.5 '+0.50*ll*2+',15.5" style="stroke: black" fill="none"/>\n' +
+                    '                </svg>');
+                    $(".lr_theme{{ forloop.counter0 }}").eq(i).css({
+                        'position':'absolute',
+                        {#'z-index':'-1',#}
+                        'top':-14*({{ forloop.counter0 }}+1)+'px',
+                        'left':lee+$(".lr_one{{ forloop.counter0 }}").length*7+'px'
+                     });
+                 }
+                $(".read_p").has('svg').parent().css({
+                    'height':'68px',
+                    'line-height':'44px'
+                 });
+                $(".read_p").has('svg').parent().prev().css('line-height','40px');
+                $(".read_div>.read_p>span").css('line-height','1');
+
+
+
+
+
+
+
+
+
+                {#if(fhd.length == 1){#}
+                {#    lee = fhd.offset().left;#}
+                {#    if(fhk.length == 1){#}
+                {#        le = fhk.offset().left;#}
+                {#        Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {#    }else{#}
+                {#        for(var j = 0; j < fhk.length; j++){#}
+                {#            le = fhk.eq(j).offset().left;#}
+                {#            Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {#        }#}
+                {#    }#}
+                {# }else{#}
+                {#fhd.each(function () {#}
+                {#    lee = $(this).offset().left;#}
+                {# });#}
+                {#    for(var k = 0; k < fhd.length; k++){#}
+                {#        lee = fhd.eq(k).offset().left;#}
+                {#        Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {##}
+                {#        if(fhk.length == 1){#}
+                {#            le = fhk.offset().left;#}
+                {#            Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {#        }else{#}
+                {#            for(var j = 0; j < fhk.length; j++){#}
+                {#                le = fhk.eq(j).offset().left;#}
+                {#                Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {#            }#}
+                {#        }#}
+                {##}
+                {##}
+                {#    }#}
+                {# }#}
+                {#if(fhk.length == 1){#}
+                {#    le = fhk.offset().left;#}
+                {# }else{#}
+                {#    for(var j = 0; j < fhk.length; j++){#}
+                {#        Player(i,ll,le,lee,fhd,fhk,span_has);#}
+                {#    } #}
+                {# }#}
+                {#le = fhk.offset().left;#}
+                {#lee = fhd.offset().left;#}
+
+
+             {#   function Player(i,ll,le,lee,fhd,fhk,span_has) {#}
+             {#       if(lee > le){#}
+             {#           ll = lee - le - fhd.innerWidth();#}
+             {#           span_has.eq(i).append('<svg class="lr_theme" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +#}
+             {#           '                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +#}
+             {#           '                    <path d="M'+0.1978*ll*1.9+',11.5L'+0.0612*ll*2+',11.5Q'+0.036*ll+',11.5 '+0.0072*ll+',17" style="stroke: black" fill="none"/>\n' +#}
+             {#           '                    <path d="M'+0.3597*ll*1.6+',11.5L'+0.496*ll*2+',11.5 '+0.48*ll*2+',8.5,'+0.48*ll*2+',14.5,'+0.496*ll*2+',11.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>\n' +#}
+             {#           '                </svg>');#}
+             {#           $(".lr_theme").eq(i).css({#}
+             {#               'position':'absolute',#}
+             {#               'top':'-14px',#}
+             {#               'left':le+20+'px'#}
+             {#            });#}
+             {#       }else{#}
+             {#           ll = le - lee - fhk.innerWidth();#}
+             {#           span_has.eq(i).append('<svg class="lr_theme" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +#}
+             {#           '                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +#}
+             {#           '                    <path d="M'+0.1978*ll*1.9+',11.5L'+0.0072*ll+',11.5 '+0.066*ll+',8.5 '+0.066*ll+',14.5 '+0.0072*ll+',11.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black"/>\n' +#}
+             {#           '                    <path d="M'+0.335*ll*2+',11.5L'+0.43*ll*2+',11.5Q'+0.4764*ll*2+',11.5 '+0.50*ll*2+',15.5" style="stroke: black" fill="none"/>\n' +#}
+             {#           '                </svg>');#}
+             {#           $(".lr_theme").eq(i).css({#}
+             {#               'position':'absolute',#}
+             {#               'top':'-14px',#}
+             {#               'left':lee+20+'px'#}
+             {#            });#}
+             {#       }#}
+             {#       $(".read_p").has('span').parent().css({#}
+             {#           'height':'68px',#}
+             {#           'line-height':'44px'#}
+             {#       });#}
+             {#       $(".read_div>.read_p>span").css('line-height','1');#}
+             {# }#}
+                
+
+
+
+
+                {#$(".lr_theme").eq(i).css({#}
+                {#    'position':'absolute',#}
+                {#    'top':'-14px',#}
+                {#    'left':lep+'px'#}
+                {# });#}
+
+            }
+
+
+            {#if($('.lr_one').offset().top == $('.lr_two').offset().top){#}
+            {#    if($('.lr_two').offset().left > $('.lr_one').offset().left){#}
+            {#        le = $('.lr_one').offset().left;#}
+            {#        lee = $('.lr_two').offset().left;#}
+            {#        ll = lee - le;#}
+            {#        ll = $('.lr_two').offset().left - $('.lr_one').offset().left;#}
+            {#    }else {#}
+            {#        le = $('.lr_two').offset().left;#}
+            {#        lee = $('.lr_one').offset().left - $('.lr_one').innerWidth();#}
+            {#        ll = lee - le;#}
+            {#        ll = $('.lr_one').offset().left - $('.lr_two').offset().left;#}
+            {#    }#}
+            {#    var ll = $('.lr_two').offset().left - $('.lr_one').offset().left;#}
+            {#    console.log('ll',ll);#}
+            {##}
+            {#    var ddd = '{{ y.lr_labelA }}' && '{{ y.lr_labelB }}';#}
+            {#    var sad = $(".read_div>.read_p:contains("+ddd+")");#}
+            {#    console.log('sad',sad);#}
+            {##}
+            {#    var sss = $("<div>").attr('id','div_svg').append('<svg class="lr_theme" width="'+ll+'" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +#}
+            {#        '                    <text x="'+0.1871*ll*2+'" y="16" fill="black" data-arc-role="{{ y.lr_relationship }}" data-arc-origin="E1" data-arc-target="T7" class="">{{ y.lr_relationship }}</text>\n' +#}
+            {#        '                    <path d="M'+0.1978*ll*2+',11.5L'+0.0612*ll*2+',11.5Q'+0.036*ll*2+',11.5 '+0.0072*ll*2+',17" style="stroke: black" fill="none"/>\n' +#}
+            {#        '                    <path d="M'+0.3597*ll*2+',11.5L'+0.4964*ll*2+',11.5Q'+0.5216*ll+',11.5 '+0.5504*ll+',12.5" marker-end="url(#arrow_triangle_5_black)" style="stroke: black" fill="none"/>\n' +#}
+            {#        '                </svg>');#}
+            {##}
+            {#    $(".read_div>.read_p:contains("+ddd+")").append(sss);#}
+            {#    $(".lr_theme").parent().css('height','20px');#}
+            {#    $(".lr_theme").css({#}
+            {#        'position':'absolute',#}
+            {#        'top':'-30px',#}
+            {#        'left':le+20+'px'#}
+            {#     })#}
+            {##}
+            {# }#}
+
+
+            {#var b = $('#read_cont').html().search(/'{{ x }}'/g);#}
+            {#$("span:has('{{ y.lr_labelA }}')").css('color','red');#}
+            {#console.log('b',b);#}
+            {#console.log('1','{{ y.lr_labelA }}');#}
+            {#console.log('2','{{ y.lr_labelB }}');#}
+            {#console.log('3','{{ y.lr_relationship }}');#}
+        {% endfor %}
+
+
+    </script>
+{% endblock %}
+
+

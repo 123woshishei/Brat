@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/static/res/li3.ico">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/muban.css">
+    <script src="/static/js/JQ.js"></script>
+    <style>
+
+    </style>
+{% block css %}{% endblock %}
+</head>
+<body>
+    <div id="muban_main">
+        <div id="muban_top">
+            <span class="muban_top_img" id="muban_zuo"></span>
+            <span class="muban_top_img" id="muban_you"></span>
+            <span>{{ path }}</span>
+            <span id="muban_top_right">brat</span>
+        </div>
+        <div id="muban_menu">
+            <span id="muban_menu_left">
+                <span id="muban_menu_collection">Collection</span>
+                <span>Data</span>
+                <span>Search</span>
+            </span>
+            <span id="muban_menu_right">
+                <span>Options</span>
+                <span>Login</span>
+                <div>
+                    <a href="http://brat.nlplab.org/manual.html" target="_blank">Help</a>
+                    <div id="muban_menu_wenhao"></div>
+                </div>
+            </span>
+        </div>
+        <div id="muban_content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    {% block mengban %}{% endblock %}
+</body>
+<script src="/static/js/muban.js"></script>
+<script src="/static/js/main.js"></script>
+{% block js %}{% endblock %}
+</html>

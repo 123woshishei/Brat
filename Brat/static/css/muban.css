@@ -1,0 +1,338 @@
+
+/*********模板***********************************************************************************************************/
+
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+span{
+    display: inline-block;
+}
+table{
+    border-collapse: collapse;
+}
+#muban_main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#muban_top{
+    width: 100%;
+    height: 23px;
+    background: #5C9CD0 url("/static/res/mubanTop.png") 50% 50% repeat-x;
+    color: white;
+    font-size: 20px;
+}
+.muban_top_img{
+    width: 28px;
+    height: 22px;
+    border-radius: 5px;
+    float: left;
+    margin: 0 1px;
+    cursor: pointer;
+}
+#muban_zuo{
+    background: #dfeffc url("/static/res/zuo.png") 50% 50% no-repeat;
+}
+#muban_zuo:hover{
+    background-color: #c5dbec;
+}
+#muban_you{
+    background: #dfeffc url("/static/res/you.png") 50% 50% no-repeat;
+}
+#muban_you:hover{
+    background-color: #c5dbec;
+}
+#muban_top_right{
+    float: right;
+    margin-right: 10px;
+    font-family: 'Toppan Bunkyu Gothic', serif;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 22px;
+}
+#muban_menu{
+    width: 100%;
+    height: 63px;
+    border: 1px solid #a6c9e2;
+    box-shadow: 0 1px 10px 0px slategrey;
+    user-select: none;
+    color: #2e6e9e;
+    font-weight: bold;
+    position: absolute;
+    top: 23px;
+    background-color: white;
+    z-index: 9;
+    display: none;
+}
+#muban_menu span{
+    cursor: pointer;
+}
+#muban_menu_left{
+    width: 300px;
+    height: 63px;
+}
+#muban_menu_left>span:first-child{
+    margin-left: 10px;
+}
+#muban_menu_left>span{
+    height: 8px;
+    line-height: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 10px;
+    border: 1px solid #c5dbec;
+}
+#muban_menu_right{
+    width: 150px;
+    height: 63px;
+    float: right;
+}
+#muban_menu_right>span{
+    height: 8px;
+    line-height: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #c5dbec;
+}
+#muban_menu_right>div{
+    float: right;
+    margin-right: 20px;
+}
+#muban_menu_right>div>div{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-image: url("/static/res/wenhao.png");
+}
+#muban_menu_right a{
+    font-size: 14px;
+    color: darkgray;
+}
+#muban_content{
+    width: 99%;
+    border: 1px solid #7fa2ff;
+    font-size: 15px;
+    margin: 34px auto;
+    /*background-color: #5C9CD0;*/
+}
+
+/*******项目说明**************************************************************************************************************/
+
+#mengban_box{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(166,166,166,0.5);
+}
+#mengban_shuoming{
+    width: 800px;
+    height: 600px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 200px;
+    user-select: none;
+    left: calc(50% - 400px);
+    /*display: none;*/
+}
+.mengban_shuoming_top{
+    width: 99%;
+    height: 34px;
+    margin: 3px auto;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 34px;
+    background: #5C9CD0 url("/static/res/mubanTop.png") 50% 50% repeat-x;
+}
+.mengban_shuoming_top>span:first-child{
+    margin-left: 15px;
+}
+.mengban_shuoming_top_img{
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+    text-align: center;
+    border: 1px solid transparent;
+    float: right;
+    margin-top: 8px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.mengban_shuoming_top_img:hover{
+    background-color: #dfeffc;
+    color: #2e6e9e;
+}
+#mengban_shuoming_content{
+    width: 754px;
+    height: 500px;
+    padding: 0 20px;
+    margin: 0 auto;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid #5C9CD0;
+    overflow: auto;
+}
+#mengban_shuoming_content a{
+    color: black;
+}
+#mengban_shuoming_content span{
+    font-size: 16px;
+    font-weight: bold;
+}
+.mengban_button{
+    width: 50px;
+    height: 30px;
+    background-color: rgba(229,241,253,0.5);
+    border: 1px solid #a6c9e2;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 10px;
+    float: right;
+    color: #5C9CD0;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#mengban_shuoming_ok{
+    margin-right: 20px;
+}
+.mengban_button:hover{
+    background-color: #dfeffc;
+}
+
+/*******项目主题*********************************************************************************************************************/
+
+#mengban_open{
+    width: 507px;
+    height: 508px;
+    background-color: white;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 254px);
+    display: none;
+}
+#mengban_open_content{
+    width: 480px;
+    height: 400px;
+    margin: 0 auto;
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 1px solid #5C9CD0;
+    /*background-color: #5C9CD0;*/
+}
+.mengban_open_fieldset{
+    width: 440px;
+    height: 35px;
+    border: 1px solid #a6c9e2;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.mengban_open_legend{
+    background-color: #70a8d2;
+    color: white;
+    font-size: 90%;
+    padding: 0 8px;
+    border-radius: 5px;
+}
+.mengban_open_input{
+    width: 100%;
+    height: 20px;
+    user-select: none;
+    font-size: 15px;
+    border: 0;
+}
+#mengban_open_document{
+    width: 475px;
+    height: 200px;
+    margin: 20px auto;
+    border: 2px inset;
+}
+#mengban_open_document thead{
+    width: 100%;
+    height: 22px;
+    background: #5C9CD0 url("/static/res/mubanTop.png") 50% 50% repeat-x;
+    color: white;
+}
+#mengban_open_document table{
+    border: 1px solid #a6c9e2;
+    background-color: #fcfdfd;
+}
+#mengban_open_document th,td{
+    padding: 0 5px;
+    cursor: pointer;
+}
+.mengban_open_tr{
+    color: #336633;
+    line-height: 0;
+    text-indent: 5px;
+}
+.mengban_open_tr img{
+    width: 20px;
+    height: 16px;
+}
+
+/*******cancel***********************************************************************************************************************/
+
+#cancel_main{
+    width: 326px;
+    height: 136px;
+    padding: 0 10px;
+    border: 1px solid #a6c9e2;
+    border-radius: 5px;
+    color: #2e6e9e;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: 400px;
+    left: 700px;
+}
+#cancel_main>h3,#cancel_main strong{
+    text-align: center;
+    font-family: 'Liberation Sans', Verdana, Arial, Helvetica, sans-serif;
+}
+#mengban_open_but{
+    width: 200px;
+    height: 50px;
+    /*background-color: #5C9CD0;*/
+    float: right;
+    margin-right: 20px;
+}
+#mengban_open_but>div{
+    margin-right: 10px;
+}
+#mengban_open_cancel{
+    width: 80px;
+}
+
+/******read***********************************************************************************************************************/
+
+.read_div{
+    width: 100%;
+    /*line-height: 36px;*/
+}
+.read_span{
+    width: 20px;
+    text-align: right;
+    color: rgb(182,182,182);
+    border-right: 2px solid rgb(182,182,182);
+}
+.read_p{
+    width: 97.5%;
+    position: absolute;
+}
+
+
+

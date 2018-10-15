@@ -1,0 +1,113 @@
+{% extends 'muban.html' %}
+{% block title %}brat{% endblock %}
+{% block mengban %}
+    <div id="mengban_box">
+        <div id="mengban_shuoming">
+            <div class="mengban_shuoming_top">
+                <span>Tutorial</span>
+                <span id="mengban_shuoming_x" class="mengban_shuoming_top_img">x</span>
+            </div>
+            <div id="mengban_shuoming_content">
+                <h2>Welcome to the brat annotation tool!</h2>
+                <p>Below is a mini-tutorial for basic usage. For detailed instructions, please see the
+                    <a href="">brat user manual</a>
+                </p>
+                <h3>Selecting a document</h3>
+                <p>After closing this tutorial, you will see the collection browser, which allows you to access the different text collections and individual documents in those collections on your brat installation. Simply double-click on a collection name to show its contents or on a document name to open it.</p>
+                <p>You can later return to the collection browser by pressing the TAB key or by clicking on "Collection" in the menu.</p>
+                <h3>Visualization</h3>
+                <p>When a document is selected, the main window area shows a visualization of the text and annotations of that document. Placing the mouse cursor over an annotation shows further information about that annotation.</p>
+                <h3>Menu</h3>
+                <p>Placing the mouse cursor over the blue bar on top of the window opens the tool menu. This provides access to the following features:</p>
+                <ul>
+                    <li>
+                        <span>Collection</span>
+                        : collection browser</li>
+                    <li>
+                        <span>Data</span>
+                        : export annotation data</li>
+                    <li>
+                        <span>Search</span>
+                        : search current document or collection</li>
+                    <li>
+                        <span>Options</span>
+                        : system configuration options</li>
+                </ul>
+                <h3>Basic editing</h3>
+                <p>When logged in (from the menu), it is possible to add annotations for a text span simply by selecting that span with the mouse, either by "dragging" over the text or by double-clicking on a word.</p>
+                <p>After selecting a span, the system shows the annotation dialog.This allows the selection of the type to assign to the newly created annotation, as well as the addition of comments or setting additional aspects of the annotation.</p>
+                <p>Associations between annotated text spans can be annotated by "dragging" with the mouse from one annotation to the other. This again brings up a dialog for selecting the type of the annotation.</p>
+                <p>Existing annotations can be modified or deleted from the same annotation dialog, which can be brought up by double-clicking on an annotation.</p>
+                <p>(The available annotation types and other aspects depend on the configuration of each collection.)</p>
+                <h3>Advanced usage</h3>
+                <p>Please see the
+                    <a href="">brat user manual</a>
+                    for more!</p>
+            </div>
+            <div class="mengban_button" id="mengban_shuoming_ok">OK</div>
+        </div>
+        <div id="mengban_open">
+            <div class="mengban_shuoming_top">
+                <span>Open</span>
+                <span id="mengban_open_x" class="mengban_shuoming_top_img">x</span>
+            </div>
+            <div id="mengban_open_content">
+                <fieldset class="mengban_open_fieldset">
+                    <legend class="mengban_open_legend">Collection</legend>
+                    <input class="mengban_open_input" type="text" readonly="readonly" value="/{{ info }}">
+                </fieldset>
+                <fieldset class="mengban_open_fieldset">
+                    <legend class="mengban_open_legend">Collection Information</legend>
+                    <input class="mengban_open_input" type="text" readonly="readonly" value="">
+                </fieldset>
+                <fieldset class="mengban_open_fieldset">
+                    <legend class="mengban_open_legend">Document</legend>
+                    <input id="mengban_open_path" class="mengban_open_input" type="text" readonly="readonly" placeholder="Document" value="">
+                </fieldset>
+                <div id="mengban_open_document">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Document</th>
+                                <th>Modified</th>
+                                <th>Entities</th>
+                                <th>Relations</th>
+                                <th>Events</th>
+                                <th>Lssues</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mengban_open_tbody">
+                            {% for cal in catalog %}
+                                <tr class="mengban_open_tr" data-doc="{{ cal }}/">
+                                    <th><img src="/static/res/document.png"></th>
+                                    <td class="mengban_open_td">{{ cal }}/</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
+                            {% for cal in files %}
+                                <tr class="mengban_open_tr" data-doc="{{ cal }}/">
+                                    <th><img src="/static/res/file.png"></th>
+                                    <td class="mengban_open_td">{{ cal }}/</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="mengban_open_but">
+                <div class="mengban_button" id="mengban_open_cancel">Cancel</div>
+                <div class="mengban_button" id="mengban_open_ok">OK</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
